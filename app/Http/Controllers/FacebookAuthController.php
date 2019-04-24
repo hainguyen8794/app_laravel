@@ -24,7 +24,7 @@ class FacebookAuthController extends Controller
         $authUser = $this->findOrCreateUser($user);
 
         // Chỗ này để check xem nó có chạy hay không
-        // dd($user);
+
 
         Auth::login($authUser, true);
 
@@ -32,14 +32,14 @@ class FacebookAuthController extends Controller
     }
 
     private function findOrCreateUser($facebookUser){
-        $authUser = User::where('provider_id', $facebookUser->id)->first();
+        $authUser = User::where('id', $facebookUser->id)->first();
 
         if($authUser){
             return $authUser;
         }
 
         return User::create([
-            'name' => $facebookUser->name,
+            'name' => $facebookUser->user["name"],
             'password' => $facebookUser->token,
             'email' => $facebookUser->email,
             'provider_id' => $facebookUser->id,
