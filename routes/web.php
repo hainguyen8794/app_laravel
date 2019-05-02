@@ -12,11 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage.vizew.index');
 });
 
 Auth::routes();
-
+Route::get('logout', 'Auth\LoginController@logout', function () {
+    return abort(404);
+});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('auth/facebook', 'FacebookAuthController@redirectToProvider')->name('facebook.login') ;
 Route::get('auth/facebook/callback', 'FacebookAuthController@handleProviderCallback');

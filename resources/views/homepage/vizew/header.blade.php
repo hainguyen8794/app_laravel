@@ -1,3 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+    <!-- Title -->
+    <title>Vizew - Blog &amp; Magazine HTML Template</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{asset('homepage/img/core-img/favicon.ico')}}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{asset('homepage/style.css')}}">
+
+</head>
+
+<body>
+<!-- Preloader -->
 <div class="preloader d-flex align-items-center justify-content-center">
     <div class="lds-ellipsis">
         <div></div>
@@ -46,7 +70,33 @@
                             </form>
                         </div>
                         <!-- Login -->
-                        <a href="login.html" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        {{--<a href="{{url('login')}}" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>--}}
+                        @guest
+                            <li class="nav-item" style="list-style:none;">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item" style="list-style:none;">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown" style="list-style:none;">
+
+                                <span class="caret">{{ Auth::user()->name }} </span>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                                        @csrf
+                                    </form>
+
+                            </li>
+                        @endguest
                     </div>
                 </div>
             </div>
@@ -148,3 +198,9 @@
     </div>
 </header>
 <!-- ##### Header Area End ##### -->
+<script type="text/javascript">
+    // $('.dropdown').mousedown(function(){
+    //     alert('demo');
+    // });
+
+</script>
