@@ -22,8 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('provider_id')->nullable();
             $table->integer('role_id')->unsigned();
             $table->foreign('role_id')->references('id')->on('role');
-            $table->integer('village_id')->unsigned();
-            $table->foreign('village_id')->references('id')->on('village');
+            $table->integer('village_id')->unsigned()->default(0);
             $table->integer('point')->default(0);
             $table->rememberToken();
             $table->timestamps();

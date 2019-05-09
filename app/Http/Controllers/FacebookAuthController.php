@@ -42,6 +42,8 @@ class FacebookAuthController extends Controller
             'name' => $facebookUser->user["name"],
             'password' => $facebookUser->token,
             'email' => $facebookUser->email,
+            'point'=>0,
+            'role_id'=>2,
             'provider_id' => $facebookUser->id,
             'provider' => $facebookUser->id,
         ]);
