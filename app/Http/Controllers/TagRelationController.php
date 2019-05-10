@@ -13,7 +13,7 @@ class TagRelationController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.tagrelation');
     }
 
     /**

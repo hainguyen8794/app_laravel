@@ -13,7 +13,7 @@ class CoffeController extends Controller
      */
     public function index()
     {
-        //
+        return view('view.coffe');
     }
 
     /**
