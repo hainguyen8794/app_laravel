@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->foreign('role_id')->references('id')->on('role');
             $table->integer('village_id')->unsigned()->default(0);
             $table->integer('point')->default(0);
+            $table->integer('number_game')->unsigned()->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

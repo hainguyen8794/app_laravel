@@ -29,6 +29,7 @@ class CreateHostTable extends Migration
             $table->date('date');
             $table->time('time_start');
             $table->time('time_end');
+            $table->integer('limit_people')->unsigned();
             $table->timestamps();
         });
     }
