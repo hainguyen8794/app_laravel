@@ -71,8 +71,8 @@ var Script = function () {
             },
             {
                 title: 'Long Event',
-                start: new Date(y, m, d-5),
-                end: new Date(y, m, d-2)
+                start: new Date(y, m, 1)
+
             },
             {
                 id: 999,
@@ -99,8 +99,8 @@ var Script = function () {
             },
             {
                 title: 'Birthday Party',
-                start: new Date(y, m, d+1, 19, 0),
-                end: new Date(y, m, d+1, 22, 30),
+                start: new Date(y, m, d, 19, 0),
+                end: new Date(y, m, d, 22, 30),
                 allDay: false
             },
             {

@@ -3,6 +3,9 @@
 namespace App\Providers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use App\Model\TypeGame;
+use Illuminate\Support\Facades\View;
+use App\Model\GameModel;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191); //NEW: Increase StringLength
+            Schema::defaultStringLength(191); //NEW: Increase StringLength
+        $type_game = TypeGame::all();
+        $game = GameModel::limit(4)->get();
+        View::share('games',$game);
+        View::share('type_game',$type_game);
     }
 }

@@ -129,65 +129,24 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li class="active"><a href="index.blade.php">Home</a></li>
-                                <li><a href="archive-list.html">Archives</a></li>
-                                <li><a href="#">Pages</a>
+                                <li class="active"><a href="{{asset('/')}}">{{__('Home')}}</a></li>
+                                <li><a href="#">{{__('Board Game')}}</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.blade.php">- Home</a></li>
-                                        <li><a href="archive-list.html">- Archive List</a></li>
-                                        <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                        <li><a href="single-post.html">- Single Post</a></li>
-                                        <li><a href="video-post.html">- Single Video Post</a></li>
-                                        <li><a href="contact.html">- Contact</a></li>
-                                        <li><a href="typography.html">- Typography</a></li>
-                                        <li><a href="login.html">- Login</a></li>
+                                        @foreach($games as $game)
+                                        <li><a href="index.blade.php">-{{$game->name}}  </a></li>
+                                       @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="#">Features</a>
+                                <li><a href="#">{{__('Thể Loại')}}</a>
                                     <div class="megamenu">
+                                        @foreach( $type_game as $game)
                                         <ul class="single-mega cn-col-4">
-                                            <li><a href="index.blade.php">- Home</a></li>
-                                            <li><a href="archive-list.html">- Archive List</a></li>
-                                            <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                            <li><a href="single-post.html">- Single Post</a></li>
-                                            <li><a href="video-post.html">- Single Video Post</a></li>
-                                            <li><a href="contact.html">- Contact</a></li>
-                                            <li><a href="typography.html">- Typography</a></li>
-                                            <li><a href="login.html">- Login</a></li>
+                                            <li><a title="{{$game->description}}" href="index.blade.php"> {{$game->name}}</a></li>
                                         </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="index.blade.php">- Home</a></li>
-                                            <li><a href="archive-list.html">- Archive List</a></li>
-                                            <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                            <li><a href="single-post.html">- Single Post</a></li>
-                                            <li><a href="video-post.html">- Single Video Post</a></li>
-                                            <li><a href="contact.html">- Contact</a></li>
-                                            <li><a href="typography.html">- Typography</a></li>
-                                            <li><a href="login.html">- Login</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="index.blade.php">- Home</a></li>
-                                            <li><a href="archive-list.html">- Archive List</a></li>
-                                            <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                            <li><a href="single-post.html">- Single Post</a></li>
-                                            <li><a href="video-post.html">- Single Video Post</a></li>
-                                            <li><a href="contact.html">- Contact</a></li>
-                                            <li><a href="typography.html">- Typography</a></li>
-                                            <li><a href="login.html">- Login</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="index.blade.php">- Home</a></li>
-                                            <li><a href="archive-list.html">- Archive List</a></li>
-                                            <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                            <li><a href="single-post.html">- Single Post</a></li>
-                                            <li><a href="video-post.html">- Single Video Post</a></li>
-                                            <li><a href="contact.html">- Contact</a></li>
-                                            <li><a href="typography.html">- Typography</a></li>
-                                            <li><a href="login.html">- Login</a></li>
-                                        </ul>
+                                       @endforeach
                                     </div>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="#contact">Contact</a></li>
                             </ul>
                         </div>
                         <!-- Nav End -->

@@ -1,4 +1,4 @@
-<footer class="footer-area">
+<footer class="footer-area" id="contact">
     <div class="container">
         <div class="row">
             <!-- Footer Widget Area -->
