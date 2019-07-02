@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -25,4 +27,16 @@ class HomeController extends Controller
     {
         return view('homepage.vizew.index');
     }
+
+    public function admin()
+    {
+
+        if (\Gate::allows('admin')) {
+            return view('admin.admin');
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
 }

@@ -24,7 +24,19 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        // Khai báo các gate của chúng ta ở đây
 
-        //
+        Gate::define('admin', function ($user) {
+            return $user->role_id == 1;
+        });
+        Gate::define('truong_lang', function ($user) {
+            return $user->role_id == 2;
+        });
+        Gate::define('lang_vien', function ($user) {
+            return $user->role_id == 3;
+        });
+        Gate::define('lang_thang', function ($user) {
+            return $user->role_id == 4;
+        });
     }
 }

@@ -22,3 +22,5 @@ Route::get('logout', 'Auth\LoginController@logout', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('auth/facebook', 'FacebookAuthController@redirectToProvider')->name('facebook.login') ;
 Route::get('auth/facebook/callback', 'FacebookAuthController@handleProviderCallback');
+// Route admin
+Route::get('admin','HomeController@admin')->name('admin');
